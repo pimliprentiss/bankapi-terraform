@@ -12,7 +12,7 @@ The [EKS Blueprint](https://github.com/aws-ia/terraform-aws-eks-blueprints) was 
 * cert-manager
 * cluster-autoscaler
 
-ArgoCD will handle the Continous Deployment by deplying the [application charts](https://github.com/pimliprentiss/bankapi-argo-registry).
+ArgoCD will handle the Continous Deployment by deploying the [application charts](https://github.com/pimliprentiss/bankapi-argo-registry).
 
 ---
 Deploying
