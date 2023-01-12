@@ -6,7 +6,7 @@ This will create all the neccesaty infrastructure for running the BankApi app on
 * Load Balancer and Ingress Controller
 * Auto Scaling Groups
 
-The [EKS Blueprint](https://github.com/aws-ia/terraform-aws-eks-blueprints) was used to bootstrap the cluster with basic operators such as:
+The [EKS Blueprint](https://github.com/aws-ia/terraform-aws-eks-blueprints) module was used to bootstrap the cluster with basic operators such as:
 * ArgoCD
 * NGINX Ingress Controller
 * cert-manager
