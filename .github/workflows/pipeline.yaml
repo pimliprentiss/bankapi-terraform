@@ -18,4 +18,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2.4.2
       - name: Bump Versions
-        uses: remorses/bump-version@v8     
+        uses: remorses/bump-version@v8
+      - id: set-version
+        run: echo "VERSION=$(cat VERSION)" >> $GITHUB_OUTPUT
+      - name: Commit new Version
+        uses: github-actions-x/commit@v2.9
+        with: 
+          commit-message: "Automated commit for version ${{ steps.set-version.outputs.VERSION }}"
+          name: "${{ github.actor }}"
+      
