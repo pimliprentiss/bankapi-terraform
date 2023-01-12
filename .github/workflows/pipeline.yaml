@@ -1,0 +1,33 @@
+name: bankapi-terraform 
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - '*'
+    paths-ignore:
+      - .github/**
+      - VERSION
+      - .?[dD]ocker**
+jobs: 
+  Build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+    steps: 
+      - name: Checkout
+        uses: actions/checkout@v2.4.2
+      - name: Bump Versions
+        uses: remorses/bump-version@v8
+      - id: set-version
+        run: echo "VERSION=$(cat VERSION)" >> $GITHUB_OUTPUT
+      - name: Commit new Version
+        uses: github-actions-x/commit@v2.9
+        with: 
+          commit-message: "Automated commit for version ${{ steps.set-tag.outputs.VERSION }}"
+          name: "${{ github.actor }}" 
+      - name: Create and push new version tag
+        uses: actions-ecosystem/action-push-tag@v1.0.0
+        with: 
+          tag: "${{ steps.set-tag.outputs.VERSION }}"
+      
