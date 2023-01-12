@@ -26,8 +26,4 @@ jobs:
         with: 
           commit-message: "Automated commit for version ${{ steps.set-tag.outputs.VERSION }}"
           name: "${{ github.actor }}" 
-      - name: Create and push new version tag
-        uses: actions-ecosystem/action-push-tag@v1.0.0
-        with: 
-          tag: "${{ steps.set-version.outputs.VERSION }}"
       
