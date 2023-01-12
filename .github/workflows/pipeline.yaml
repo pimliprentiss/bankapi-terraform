@@ -24,6 +24,6 @@ jobs:
       - name: Commit new Version
         uses: github-actions-x/commit@v2.9
         with: 
-          commit-message: "Automated commit for version ${{ steps.set-tag.outputs.VERSION }}"
+          commit-message: "Automated commit for version ${{ steps.set-version.outputs.VERSION }}"
           name: "${{ github.actor }}" 
       
